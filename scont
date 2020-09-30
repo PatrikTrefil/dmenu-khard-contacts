@@ -1,0 +1,11 @@
+#!/bin/sh
+
+query="$(khard | awk '{print $2 $3}' | dmenu -i | tr "," " ")"
+result="$(khard $query)"
+case "$(echo -e "phone\nemail" | dmenu -i)" in
+  "phone") copy="$(echo $result | egrep -o "\+([0-9]|\s)*")" ;;
+  "email") copy="$(echo $result | egrep -o "\S*@\S*")" ;;
+esac
+
+echo $copy | xclip -selection clipboard
+exit 0
