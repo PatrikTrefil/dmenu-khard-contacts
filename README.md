@@ -10,6 +10,6 @@ cd ./dmenu-khard-contacts
 ./scont
 ```
 
-You need a tool to sync your contacts. You will probably need a CardDAV client. I recommend [khard](https://github.com/scheibler/khard/).
+You need a tool to sync your contacts. You will probably need a CardDAV client. This tool is optimised for [khard](https://github.com/scheibler/khard/).
 
 Dmenu is required. You can get it as a package from all major repositories or download from [the official website](https://tools.suckless.org/dmenu/) and build manually.
