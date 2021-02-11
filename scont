@@ -1,8 +1,12 @@
 #!/bin/sh
 
-query="$(khard | awk '{print $2 $3}' | dmenu -i | tr "," " ")"
+set -e
+
+query="$(khard | awk '{print $2 $3}' | tr "," " " | dmenu -i)"
 result="$(khard $query)"
-case "$(echo -e "phone\nemail" | dmenu -i)" in
+selecton="$(echo -e "phone\nemail" | dmenu -i)"
+
+case "$selection" in
   "phone") copy="$(echo $result | egrep -o "\+([0-9]|\s)*")" ;;
   "email") copy="$(echo $result | egrep -o "\S*@\S*")" ;;
 esac
